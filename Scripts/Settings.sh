@@ -42,6 +42,11 @@ if [ -n "$WRT_PACKAGE" ]; then
 	echo -e "$WRT_PACKAGE" >> ./.config
 fi
 
+#OAF 应用过滤（开启 luci-app-oaf 会自动带上 appfilter 与 kmod-oaf）
+if [ "$WRT_OAF" = "true" ]; then
+	echo "CONFIG_PACKAGE_luci-app-oaf=y" >> ./.config
+fi
+
 #高通平台调整
 DTS_PATH="./target/linux/qualcommax/dts/"
 if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then

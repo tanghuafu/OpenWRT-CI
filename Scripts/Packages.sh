@@ -56,6 +56,14 @@ UPDATE_PACKAGE "kucat-config" "sirpdboy/luci-app-kucat-config" "master"
 UPDATE_PACKAGE "shadcn" "eamonxg/luci-theme-shadcn" "main"
 UPDATE_PACKAGE "vantage" "anothaDev/luci-theme-vantage" "main"
 
+#Lucky 网络工具箱（含 luci-app-lucky）
+UPDATE_PACKAGE "lucky" "gdy666/luci-app-lucky" "main"
+
+#OAF 应用过滤（luci-app-oaf + appfilter + kmod-oaf），由 WRT_OAF 开关控制
+if [ "$WRT_OAF" = "true" ]; then
+	UPDATE_PACKAGE "oaf" "destan19/OpenAppFilter" "master" "" "luci-app-oaf appfilter open-app-filter"
+fi
+
 UPDATE_PACKAGE "momo" "nikkinikki-org/OpenWrt-momo" "main"
 UPDATE_PACKAGE "nikki" "nikkinikki-org/OpenWrt-nikki" "main"
 UPDATE_PACKAGE "openclash" "vernesong/OpenClash" "dev" "pkg"
